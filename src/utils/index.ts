@@ -9,9 +9,11 @@ type RoversInstructions = {
 const whiteSpace = /\s+?/g;
 
 export function processInstructions(instructions: string): string[] {
+  // split lines, trim them and remove white spaces
   const instructionsLines = instructions
     .split('\n')
     .map((i: string) => i.trim().replace(whiteSpace, ''));
+  // if the instructions aren't complete return error
   if (instructionsLines.length % 2 !== 1 && instructionsLines.length > 1) {
     return ['Missing one line of instruction'];
   }
@@ -19,11 +21,14 @@ export function processInstructions(instructions: string): string[] {
 }
 
 function processInstructionsLines(instructionsLines: string[]): string[] {
+  // extract grid boundaries
   const bounds = instructionsLines.shift()?.split('') || [];
   if (bounds.length !== 2) return ['Incorrect boundaries'];
+
   const roversInstructions = [];
   for (let i = 0; i < instructionsLines.length; i += 2) {
     const position = instructionsLines[i].split('');
+    // check if boundaries and initial position are correct
     if (position[0] > bounds[0] || position[1] > bounds[1]) {
       return ['Incorrect rover initial position'];
     }
@@ -44,6 +49,7 @@ function executeInstructions(
   roversInstructions: RoversInstructions[]
 ): string[] {
   for (const roverInstructions of roversInstructions) {
+    // process each instruction and modify start position accordingly
     roverInstructions.instructions.forEach((instruction: string) => {
       switch (instruction) {
         case 'M':
