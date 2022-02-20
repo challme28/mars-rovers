@@ -40,7 +40,7 @@ function App() {
         value={instructions}
       />
       <button className="button" onClick={handleClickButton}>
-        Generate receipt
+        Process instructions
       </button>
       <span className="result">{positions}</span>
     </main>
