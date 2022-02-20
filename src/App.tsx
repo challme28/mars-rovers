@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 import './App.css';
-import {processInstructions} from './utils';
+import {processInstructions} from './instructions-processor';
 
 function App() {
   const [instructions, setInstructions] = useState<string>('');
