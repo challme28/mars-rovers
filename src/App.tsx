@@ -20,7 +20,19 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <main className="App">
+      <section className="description">
+        <h3>Please enter the instructions with the following requirements:</h3>
+        <p className="description-instructions">
+          The first line of input establishes the exploration grid bounds. The
+          second line confirms the rover’s current position and heading. The
+          third string consists of turn / move instructions.
+        </p>
+        <p>Example:</p>
+        <p className="instructions-example">
+          5 5{'\n'}1 2 N{'\n'}LMLMLMLMM
+        </p>
+      </section>
       <textarea
         className="instructions"
         rows={15}
@@ -31,7 +43,7 @@ function App() {
         Generate receipt
       </button>
       <span className="result">{positions}</span>
-    </div>
+    </main>
   );
 }
 
