@@ -12,7 +12,7 @@ export function processInstructions(instructions: string): string[] {
   // split lines, trim them and remove white spaces
   const instructionsLines = instructions
     .split('\n')
-    .map((i: string) => i.trim().replace(whiteSpace, ''));
+    .map((i: string) => i.toUpperCase().trim().replace(whiteSpace, ''));
   // if the instructions aren't complete return error
   if (instructionsLines.length % 2 !== 1 && instructionsLines.length > 1) {
     return ['Missing one line of instruction'];
