@@ -13,7 +13,7 @@ function App() {
 
   const handleClickButton = () => {
     if (!instructions) {
-      setPositions('Empty shopping basket');
+      setPositions('Empty instructions');
       return;
     }
     setPositions(processInstructions(instructions).join('\n'));

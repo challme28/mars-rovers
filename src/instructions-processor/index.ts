@@ -15,14 +15,14 @@ export function processInstructions(instructions: string): string[] {
     .map((i: string) => i.toUpperCase().trim().replace(whiteSpace, ''));
   // if the instructions aren't complete return error
   if (instructionsLines.length % 2 !== 1 && instructionsLines.length > 1) {
-    return ['Missing one line of instruction'];
+    return ['Missing one or more lines of instructions'];
   }
   return processInstructionsLines(instructionsLines);
 }
 
 function processInstructionsLines(instructionsLines: string[]): string[] {
   // extract grid boundaries
-  const bounds = instructionsLines.shift()?.split('') || [];
+  const bounds = instructionsLines.shift()!.split('');
   if (bounds.length !== 2) return ['Incorrect boundaries'];
 
   const roversInstructions = [];
